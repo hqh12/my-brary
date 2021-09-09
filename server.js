@@ -3,6 +3,7 @@ const app = express();
 const expressLayouts = require('express-ejs-layouts');//no need header and footer in ejs
 const routerIndex = require('./routes/index');
 const authorIndex = require('./routes/authors');
+const bookIndex = require('./routes/books')
 const mongoose = require('mongoose');
 require('dotenv').config();
 
@@ -24,6 +25,7 @@ db.once('open', () => console.log('Connect Success'))
 
 app.use('/', routerIndex)
 app.use('/authors', authorIndex)
+app.use('/books', bookIndex)
 
 
 app.listen(5000, () => {
